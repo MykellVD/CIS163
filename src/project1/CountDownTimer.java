@@ -1,6 +1,7 @@
 package project1;
 
-import java.util.*;
+import java.io.*;
+import java.util.Scanner;
 
 public class CountDownTimer {
 
@@ -8,6 +9,7 @@ public class CountDownTimer {
 	private int minutes;
 	private int seconds;
 
+	private static boolean suspend = false;
 
 	public CountDownTimer() {
 		hours = 0;
@@ -65,46 +67,66 @@ public class CountDownTimer {
 
 	public CountDownTimer(String startTime) {
 		int startTimeLen = startTime.length();
+		if (startTimeLen > 8)
+			throw new IllegalArgumentException();
+		else {
+			String[] startTimeSplit = startTime.split(":");
+			if (startTimeSplit.length == 1 && ) //fix
+		}
+
 		if (startTimeLen <= 2) {
 			this.seconds = Integer.parseInt(startTime);
 		}
 
 		else if (startTimeLen > 3 && startTimeLen <= 5) {
-			String[] startTimeSplit = startTime.split(":");
+			System.out.println(startTimeSplit[0] + "  " + startTimeSplit[1]);
 			this.minutes = Integer.parseInt(startTimeSplit[0]);
 			this.seconds = Integer.parseInt(startTimeSplit[1]);
 		}
+
 		else if (startTimeLen > 6 && startTimeLen <= 8) {
 			String[] startTimeSplit = startTime.split(":");
+			System.out.println(startTimeSplit[0] + "  " + startTimeSplit[1] + "  " + startTimeSplit[2]);
 			this.hours = Integer.parseInt(startTimeSplit[0]);
+
+			if (Integer.parseInt(startTimeSplit[1]) > 59)
+				throw new IllegalArgumentException();
 			this.minutes = Integer.parseInt(startTimeSplit[1]);
+
+			if (Integer.parseInt(startTimeSplit[2]) > 59)
+				throw new IllegalArgumentException();
 			this.seconds = Integer.parseInt(startTimeSplit[2]);
 		}
 		else {
-			throw new IllegalArgumentException("Cannot assign " + startTime + " as a starttime");
+			this.hours = 0;
+			this.minutes = 0;
+			this.seconds = 0;
 		}
 	}
 
-	public boolean equals(CountDownTimer other) {
+	public boolean equals(Object other) {
+		boolean rtn = false;
 		if (other == null){
-			throw new IllegalArgumentException("CountDownTimer cannot equal null");
+			throw new IllegalArgumentException();
 		}
 		else if (other instanceof CountDownTimer){
-			if(this.hours == other.hours &&
-					this.minutes == other.minutes &&
-					this.seconds == other.seconds) {
-				return true;
+			if(this.hours == ((CountDownTimer) other).hours &&
+					this.minutes == ((CountDownTimer) other).minutes &&
+					this.seconds == ((CountDownTimer) other).seconds) {
+				rtn = true;
 			}
 			else {
-				return false;
+				rtn = false;
 			}
-		} else {
-			return false;
 		}
+		return rtn;
 	}
 
 	public static boolean equals (CountDownTimer t1, CountDownTimer t2) {
-		return t1.equals(t2);
+		if (t1.equals(t2)){
+			return true;
+		}
+		return false;
 	}
 
 	public int compareTo(CountDownTimer other) {
@@ -131,10 +153,6 @@ public class CountDownTimer {
 		}
 	}
 
-	public void dec() {
-		this.seconds--;
-	}
-
 	public void sub(int seconds) {
 		this.seconds -= seconds % 60;
 		this.minutes -= (seconds / 60) % 60;
@@ -142,12 +160,59 @@ public class CountDownTimer {
 	}
 
 	public void add(int seconds) {
-		this.seconds += seconds % 60;
-		this.minutes += (seconds / 60) % 60;
-		this.hours += (seconds / 60) / 60;
+		if(suspend == false) {
+			if(seconds < 0) {
+				throw new IllegalArgumentException();
+			}else {
+				for(int i=0;i<seconds;i++) {
+					inc();
+				}
+			}
+		}
+	}
+
+	public void inc(){
+		if(suspend == false) {
+			if(seconds == 59) {
+				seconds = 0;
+				if(minutes == 59) {
+					seconds = 0;
+					hours += 1;
+				}else {
+					minutes += 1;
+				}
+			}else {
+				seconds += 1;
+			}
+		}
+	}
+
+	public void dec() {
+		if(suspend == false) {
+			if(seconds == 0) {
+				if(minutes == 0) {
+					if(hours == 0){
+						hours = 0;
+						minutes = 0;
+						seconds = 0;
+					}else{
+						hours -= 1;
+						minutes = 59;
+						seconds = 59;
+					}
+				}else {
+					minutes -= 1;
+					seconds = 59;
+				}
+			}else {
+				seconds -= 1;
+			}
+		}
 	}
 
 	public void add(CountDownTimer other) {
+		if (other == null)
+			throw new IllegalArgumentException();
 		this.hours += other.hours;
 		this.minutes += other.minutes;
 		this.seconds += other.seconds;
@@ -193,5 +258,51 @@ public class CountDownTimer {
 
 	public void setSeconds(int seconds) {
 		this.seconds = seconds;
+	}
+
+	public void save(String fileName){
+		if (fileName == null)
+			throw new IllegalArgumentException();
+		PrintWriter out = null;
+		try {
+			out = new PrintWriter (new BufferedWriter(new FileWriter(fileName)));
+			out.println(this.hours + "" + this.minutes + "" + this.seconds);
+		}
+		catch (IOException e){
+			e.printStackTrace();
+		}
+		finally{
+			out.close();
+		}
+	}
+
+	public void load(String fileName){
+		if (fileName == null)
+			throw new NullPointerException();
+
+		Scanner scanner = null;
+		try{
+			scanner = new Scanner(new File(fileName));
+
+			this.hours = scanner.nextInt();
+			this.minutes = scanner.nextInt();
+			this.seconds = scanner.nextInt();
+		}
+		catch (FileNotFoundException e){
+			throw new NullPointerException();
+		}
+		finally {
+			scanner.close();
+		}
+	}
+
+	//turns on and off all stopWatch object
+	public static void setSuspend(boolean suspend) {
+		CountDownTimer.suspend = suspend;
+	}
+
+	//returns suspend
+	public static boolean isSuspended() {
+		return suspend;
 	}
 }
