@@ -66,41 +66,39 @@ public class CountDownTimer {
 	}
 
 	public CountDownTimer(String startTime) {
-		int startTimeLen = startTime.length();
-		if (startTimeLen > 8)
+		if (startTime == null) {
 			throw new IllegalArgumentException();
-		else {
-			String[] startTimeSplit = startTime.split(":");
-			if (startTimeSplit.length == 1 && ) //fix
-		}
+		} else {
+			String[] startTimeSplit = startTime.split(":",-1);
 
-		if (startTimeLen <= 2) {
-			this.seconds = Integer.parseInt(startTime);
-		}
+			hours = -1;
+			minutes = -1;
+			seconds = -1;
 
-		else if (startTimeLen > 3 && startTimeLen <= 5) {
-			System.out.println(startTimeSplit[0] + "  " + startTimeSplit[1]);
-			this.minutes = Integer.parseInt(startTimeSplit[0]);
-			this.seconds = Integer.parseInt(startTimeSplit[1]);
-		}
-
-		else if (startTimeLen > 6 && startTimeLen <= 8) {
-			String[] startTimeSplit = startTime.split(":");
-			System.out.println(startTimeSplit[0] + "  " + startTimeSplit[1] + "  " + startTimeSplit[2]);
-			this.hours = Integer.parseInt(startTimeSplit[0]);
-
-			if (Integer.parseInt(startTimeSplit[1]) > 59)
+			if (startTimeSplit.length == 1 && startTimeSplit[0] == "") {
 				throw new IllegalArgumentException();
-			this.minutes = Integer.parseInt(startTimeSplit[1]);
+			}
+			if (startTimeSplit.length == 1) {
+				hours = 0;
+				minutes = 0;
+				seconds = Integer.parseInt(startTime);
+			} else if (startTimeSplit.length == 2) {
+				hours = 0;
+				minutes = Integer.parseInt(startTimeSplit[0]);
+				seconds = Integer.parseInt(startTimeSplit[1]);
+			} else if (startTimeSplit.length == 3) {
+				hours = Integer.parseInt(startTimeSplit[0]);
+				minutes = Integer.parseInt(startTimeSplit[1]);
+				seconds = Integer.parseInt(startTimeSplit[2]);
+			}
+			if (hours < 0 || minutes > 59 || seconds > 59 || minutes < 0 || seconds < 0) {
+				throw new NumberFormatException();
+			} else {
+				this.hours = hours;
+				this.minutes = minutes;
+				this.seconds = seconds;
+			}
 
-			if (Integer.parseInt(startTimeSplit[2]) > 59)
-				throw new IllegalArgumentException();
-			this.seconds = Integer.parseInt(startTimeSplit[2]);
-		}
-		else {
-			this.hours = 0;
-			this.minutes = 0;
-			this.seconds = 0;
 		}
 	}
 
@@ -176,7 +174,7 @@ public class CountDownTimer {
 			if(seconds == 59) {
 				seconds = 0;
 				if(minutes == 59) {
-					seconds = 0;
+					minutes = 0;
 					hours += 1;
 				}else {
 					minutes += 1;

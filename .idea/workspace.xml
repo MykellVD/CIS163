@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b085e11-0fd5-4891-8bc5-854afed46e1c" name="Changes" comment="update 1.3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project1/CountDownTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/CountDownTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/TestCountDownTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/TestCountDownTimer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,23 +41,10 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
   </component>
-  <component name="RunManager" selected="Application.CountDownTimerGUISwing">
-    <configuration name="CountDownTimerGUISwing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="project1.CountDownTimerGUISwing" />
-      <module name="CIS163" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/project1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="project1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TestCountDownTimer.testConstructorStringSeconds">
     <configuration name="TestCountDownTimer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CIS163" />
       <extension name="coverage">
@@ -71,7 +60,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCountDownTimer.testAdd60" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCountDownTimer.testConstructorStringSeconds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CIS163" />
       <extension name="coverage">
         <pattern>
@@ -81,13 +70,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="project1" />
       <option name="MAIN_CLASS_NAME" value="project1.TestCountDownTimer" />
-      <option name="METHOD_NAME" value="testAdd60" />
+      <option name="METHOD_NAME" value="testConstructorStringSeconds" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCountDownTimer.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCountDownTimer.testToStringBlankHour" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CIS163" />
       <extension name="coverage">
         <pattern>
@@ -97,13 +86,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="project1" />
       <option name="MAIN_CLASS_NAME" value="project1.TestCountDownTimer" />
-      <option name="METHOD_NAME" value="testEquals" />
+      <option name="METHOD_NAME" value="testToStringBlankHour" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCountDownTimer.testEqualsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCountDownTimer.testToStringBlankMin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CIS163" />
       <extension name="coverage">
         <pattern>
@@ -113,7 +102,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="project1" />
       <option name="MAIN_CLASS_NAME" value="project1.TestCountDownTimer" />
-      <option name="METHOD_NAME" value="testEqualsNull" />
+      <option name="METHOD_NAME" value="testToStringBlankMin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCountDownTimer.testToStringBlankSec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CIS163" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project1" />
+      <option name="MAIN_CLASS_NAME" value="project1.TestCountDownTimer" />
+      <option name="METHOD_NAME" value="testToStringBlankSec" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CountDownTimerGUISwing" />
+        <item itemvalue="JUnit.TestCountDownTimer.testConstructorStringSeconds" />
         <item itemvalue="JUnit.TestCountDownTimer" />
-        <item itemvalue="JUnit.TestCountDownTimer.testEqualsNull" />
-        <item itemvalue="JUnit.TestCountDownTimer.testEquals" />
-        <item itemvalue="JUnit.TestCountDownTimer.testAdd60" />
+        <item itemvalue="JUnit.TestCountDownTimer.testToStringBlankHour" />
+        <item itemvalue="JUnit.TestCountDownTimer.testToStringBlankMin" />
+        <item itemvalue="JUnit.TestCountDownTimer.testToStringBlankSec" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631288548906</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update 1.3">
+      <created>1631288721369</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631288721369</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
