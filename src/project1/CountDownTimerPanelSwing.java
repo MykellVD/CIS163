@@ -19,7 +19,7 @@ public class CountDownTimerPanelSwing extends JPanel {
 	private CountDownTimer watch;
     private Timer javaTimer;
 
-    private JButton startButton, stopButton, saveButton, loadButton, addButton, stringInputButton, continueButton;;
+    private JButton startButton, stopButton, saveButton, loadButton, addButton, stringInputButton, continueButton;
     private JTextField hourField, minField, secondField, addSecondsField, newStringField;
 
     private JLabel lblTime;
@@ -80,11 +80,12 @@ public class CountDownTimerPanelSwing extends JPanel {
 
         public void actionPerformed(ActionEvent e) {
             try {
-                // watch.sub(1);
+                watch.sub(1);
                 lblTime.setText(watch.toString());
             }
             catch (Exception exception) {
-
+                JOptionPane.showMessageDialog(null, "Oh?");
+                javaTimer.stop();
 			}
         }
     }

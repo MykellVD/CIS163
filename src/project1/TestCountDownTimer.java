@@ -276,10 +276,6 @@ public class TestCountDownTimer {
 		new CountDownTimer("1:30:82");
 	}
 
-	@Test (expected = IllegalArgumentException.class) //JU
-	public void testConstructorStringSeconds() {
-		new CountDownTimer("32");
-	}
 
 	@Test (expected = IllegalArgumentException.class) //JU
 	public void testConstructorStringLongSeconds() {

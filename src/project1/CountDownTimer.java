@@ -152,9 +152,15 @@ public class CountDownTimer {
 	}
 
 	public void sub(int seconds) {
-		this.seconds -= seconds % 60;
-		this.minutes -= (seconds / 60) % 60;
-		this.hours -= (seconds / 60) / 60;
+		if (suspend == false) {
+			if (seconds < 0) {
+				throw new IllegalArgumentException();
+			} else {
+				this.seconds -= seconds % 60;
+				this.minutes -= (seconds / 60) % 60;
+				this.hours -= (seconds / 60) / 60;
+			}
+		}
 	}
 
 	public void add(int seconds) {
@@ -234,6 +240,10 @@ public class CountDownTimer {
 		return fmStr;
 	}
 
+	public int getTotalTime() {
+		return (this.hours * 3600) + (this.minutes * 60) + this.seconds;
+	}
+
 	public int getHours() {
 		return hours;
 	}
@@ -264,7 +274,7 @@ public class CountDownTimer {
 		PrintWriter out = null;
 		try {
 			out = new PrintWriter (new BufferedWriter(new FileWriter(fileName)));
-			out.println(this.hours + "" + this.minutes + "" + this.seconds);
+			out.println(this.hours + " " + this.minutes + " " + this.seconds);
 		}
 		catch (IOException e){
 			e.printStackTrace();

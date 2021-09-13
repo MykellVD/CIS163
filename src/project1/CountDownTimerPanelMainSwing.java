@@ -9,7 +9,7 @@ public class CountDownTimerPanelMainSwing extends JPanel {
 
 	private JMenuItem quitItem;
 	private JMenuItem suspendItem;
-	private JButton supsendTrue;
+	private JButton suspendTrue;
 	private JButton suspendFalse;
 	
 	public CountDownTimerPanelMainSwing(JMenuItem quitItem, JMenuItem suspendItem) {
@@ -18,16 +18,18 @@ public class CountDownTimerPanelMainSwing extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.add(new CountDownTimerPanelSwing());
+		panel.add(new CountDownTimerPanelSwing());
+		panel.add(new CountDownTimerPanelSwing());
 
 		suspendFalse = new JButton("Suspend false");
-		supsendTrue = new JButton("Suspend true");
+		suspendTrue = new JButton("Suspend true");
 		add(panel);
 		add (suspendFalse);
-		add (supsendTrue);
+		add (suspendTrue);
 	
 		quitItem.addActionListener(new Mylistener());
 		suspendItem.addActionListener(new Mylistener());
-		supsendTrue.addActionListener(new Mylistener());
+		suspendTrue.addActionListener(new Mylistener());
 		suspendFalse.addActionListener(new Mylistener());
 	}
 	
@@ -37,10 +39,11 @@ public class CountDownTimerPanelMainSwing extends JPanel {
 				System.exit(1);
 			}
 
-//			if (e.getSource() == suspendFalse)
-//				CountDownTimer.setSuspend(false);
-//			if (e.getSource() == supsendTrue)
-//				CountDownTimer.setSuspend(true);
+			if (e.getSource() == suspendTrue)
+				CountDownTimer.setSuspend(true);
+			if (e.getSource() == suspendFalse)
+				CountDownTimer.setSuspend(false);
+
 		}
 		
 	}
