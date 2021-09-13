@@ -25,9 +25,9 @@ public class CountDownTimerGUISwing {
 		CountDownTimerPanelMainSwing panel = new CountDownTimerPanelMainSwing(quitItem, suspendItem);
 		gui.getContentPane().add(panel);
 
-		gui.setSize(600,400);
+		gui.setSize(800,300);
 		gui.setJMenuBar(menus);
-		gui.pack();
+		//gui.pack();
 		gui.setVisible(true);
 	}
 

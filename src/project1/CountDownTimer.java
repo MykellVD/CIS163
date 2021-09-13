@@ -128,10 +128,10 @@ public class CountDownTimer {
 	}
 
 	public int compareTo(CountDownTimer other) {
-		if (this.hours > other.hours && this.minutes > other.minutes && this.seconds > other.seconds) {
+		if (this.getTotalTime() > other.getTotalTime()) {
 			return 1;
 		}
-		else if (this.hours < other.hours && this.minutes < other.minutes && this.seconds < other.seconds) {
+		else if (this.getTotalTime() < other.getTotalTime()) {
 			return -1;
 		}
 		else {
@@ -140,10 +140,10 @@ public class CountDownTimer {
 	}
 
 	public static int compareTo(CountDownTimer t1, CountDownTimer t2) {
-		if (t1.hours > t2.hours && t1.minutes > t2.minutes && t1.seconds > t2.seconds) {
+		if (t1.getTotalTime() > t2.getTotalTime()) {
 			return 1;
 		}
-		else if (t1.hours < t2.hours && t1.minutes < t2.minutes && t1.seconds < t2.seconds) {
+		else if (t1.getTotalTime() < t2.getTotalTime()) {
 			return -1;
 		}
 		else {
@@ -168,9 +168,9 @@ public class CountDownTimer {
 			if(seconds < 0) {
 				throw new IllegalArgumentException();
 			}else {
-				for(int i=0;i<seconds;i++) {
-					inc();
-				}
+				this.seconds += seconds % 60;
+				this.minutes += (seconds / 60) % 60;
+				this.hours += (seconds / 60) / 60;
 			}
 		}
 	}

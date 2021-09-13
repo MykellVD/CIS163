@@ -2,11 +2,10 @@ package project1;
 
 import javax.swing.*;
 
-import project1.CountDownTimer;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.TextListener;
 
 /**
  * Write a description  here.
@@ -19,10 +18,10 @@ public class CountDownTimerPanelSwing extends JPanel {
 	private CountDownTimer watch;
     private Timer javaTimer;
 
-    private JButton startButton, stopButton, saveButton, loadButton, addButton, stringInputButton, continueButton;
-    private JTextField hourField, minField, secondField, addSecondsField, newStringField;
+    private JButton startButton, stopButton, saveButton, loadButton, addButton, subButton, stringInputButton, continueButton;
+    private JTextField hourField, minField, secondField, addSecondsField, subSecondsField, newStringField;
 
-    private JLabel lblTime;
+    private JLabel lblTime, hourTxt, minTxt, secondText;
 
     public CountDownTimerPanelSwing() {
 
@@ -30,21 +29,68 @@ public class CountDownTimerPanelSwing extends JPanel {
         watch = new CountDownTimer();
         javaTimer = new Timer(1000, new TimerListener());
 
-        setLayout(new GridLayout(9, 2));
+        setLayout(new GridLayout(7, 3));
         setBackground(Color.lightGray);
 
-       // Code goes on...
+        hourTxt = new JLabel("Hours:         ", JLabel.RIGHT);
+
+        hourField = new JTextField();
+
+        minTxt = new JLabel("Minutes:     ", JLabel.RIGHT);
+
+        minField = new JTextField();
+
+        secondText = new JLabel("Seconds:    ", JLabel.RIGHT);
+
+        secondField = new JTextField();
+
         startButton = new JButton("Start");
-        add(startButton);
 
-        lblTime = new JLabel();
-        lblTime.setText(watch.toString());
-        add(lblTime);
+        stopButton = new JButton("Stop");
 
-        add(new JLabel("Time:"));
+        continueButton = new JButton("Continue");
+
+        addButton = new JButton("Add");
+
+        addSecondsField = new JTextField();
+
+        subButton = new JButton("Subtract");
+
+        subSecondsField = new JTextField();
+
+        loadButton = new JButton("Load");
+
+        saveButton = new JButton("Save");
+
+        stringInputButton = new JButton("New");
+
+        newStringField = new JTextField();
+
+        lblTime = new JLabel(watch.toString(), JLabel.CENTER);
+//        lblTime.setHorizontalTextPosition();
+//        lblTime.setText();
+
+
+        //Layout
+        // hours:     | text field | start button
+        // mins       | text field | stop button
+        // secs       | text field | continue
+        // add button | text field | load
+        // sub button | text field | save
+        // new button | text field | (blank)
+        // (blank)    | Time:      | --:--:--
+
+        add(hourTxt);           add(hourField);         add(startButton);
+        add(minTxt);            add(minField);          add(stopButton);
+        add(secondText);        add(secondField);       add(continueButton);
+        add(addButton);         add(addSecondsField);   add(loadButton);
+        add(subButton);         add(subSecondsField);   add(saveButton);
+        add(stringInputButton); add(newStringField);    add(new JLabel());
+        add(new JLabel()); add(new JLabel("Time:    ", JLabel.RIGHT)); add(lblTime);
+
 
         startButton.addActionListener(new ButtonListener());
-        // Code goes on...
+        stopButton.addActionListener(new ButtonListener());
 
     }
 
@@ -57,12 +103,12 @@ public class CountDownTimerPanelSwing extends JPanel {
             }
 
             if (event.getSource() == startButton) {
-            	int mins, sec, milli;
+            	int hours, mins, secs;
                 try {
-                    mins = Integer.parseInt(hourField.getText());
-                    sec = Integer.parseInt(minField.getText());
-                    milli = Integer.parseInt(secondField.getText());
-                    watch = new CountDownTimer(mins, sec, milli);
+                    hours = Integer.parseInt(hourField.getText());
+                    mins = Integer.parseInt(minField.getText());
+                    secs = Integer.parseInt(secondField.getText());
+                    watch = new CountDownTimer(hours, mins, secs);
                     javaTimer.start();
                 } catch (NumberFormatException io) {
                     JOptionPane.showMessageDialog(null, "Enter an integer in all fields");
@@ -84,7 +130,7 @@ public class CountDownTimerPanelSwing extends JPanel {
                 lblTime.setText(watch.toString());
             }
             catch (Exception exception) {
-                JOptionPane.showMessageDialog(null, "Oh?");
+                JOptionPane.showMessageDialog(null, "Happy New Year!!!");
                 javaTimer.stop();
 			}
         }
