@@ -91,6 +91,12 @@ public class CountDownTimerPanelSwing extends JPanel {
 
         startButton.addActionListener(new ButtonListener());
         stopButton.addActionListener(new ButtonListener());
+        continueButton.addActionListener(new ButtonListener());
+        addButton.addActionListener(new ButtonListener());
+        subButton.addActionListener(new ButtonListener());
+        stringInputButton.addActionListener(new ButtonListener());
+        loadButton.addActionListener(new ButtonListener());
+        saveButton.addActionListener(new ButtonListener());
 
     }
 
