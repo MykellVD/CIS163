@@ -1,11 +1,13 @@
 package project1;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.TextListener;
+import java.io.File;
 
 /**
  * Write a description  here.
@@ -22,6 +24,8 @@ public class CountDownTimerPanelSwing extends JPanel {
     private JTextField hourField, minField, secondField, addSecondsField, subSecondsField, newStringField;
 
     private JLabel lblTime, hourTxt, minTxt, secondText;
+
+    private JFileChooser file;
 
     public CountDownTimerPanelSwing() {
 
@@ -67,8 +71,10 @@ public class CountDownTimerPanelSwing extends JPanel {
         newStringField = new JTextField();
 
         lblTime = new JLabel(watch.toString(), JLabel.CENTER);
-//        lblTime.setHorizontalTextPosition();
-//        lblTime.setText();
+
+        file = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text", ".txt");
+        file.setFileFilter(filter);
 
 
         //Layout
@@ -117,9 +123,78 @@ public class CountDownTimerPanelSwing extends JPanel {
                     watch = new CountDownTimer(hours, mins, secs);
                     javaTimer.start();
                 } catch (NumberFormatException io) {
-                    JOptionPane.showMessageDialog(null, "Enter an integer in all fields");
+                    JOptionPane.showMessageDialog(null, "Enter an integer in the fields: \n\"Hours\", \"Minutes\", \"Seconds\"");
                 } catch (IllegalArgumentException e) {
-                    JOptionPane.showMessageDialog(null, "Error in field");
+                    JOptionPane.showMessageDialog(null, "Error found in fields:  \n\"Hours\", \"Minutes\", \"Seconds\"");
+                }
+            }
+
+            if (event.getSource() == continueButton) {
+                javaTimer.start();
+            }
+
+            //Adds the number of seconds indicated in the textbox (as an int) to the associated CountDowntimer
+            if (event.getSource() == addButton) {
+                int seconds;
+                try {
+                    seconds = Integer.parseInt(addSecondsField.getText());
+                    watch.add(seconds);
+                } catch (NumberFormatException io) {
+                    JOptionPane.showMessageDialog(null, "Enter an integer in \"Addition\" field");
+                } catch (IllegalArgumentException e) {
+                    JOptionPane.showMessageDialog(null, "Error in \"Addition\" field");
+                }
+
+            }
+
+            if (event.getSource() == subButton) {
+                int seconds;
+                try {
+                    seconds = Integer.parseInt(addSecondsField.getText());
+                    watch.sub(seconds);
+                } catch (NumberFormatException io) {
+                    JOptionPane.showMessageDialog(null, "Enter an integer in \"Subtraction\" field");
+                } catch (IllegalArgumentException e) {
+                    JOptionPane.showMessageDialog(null, "Error in \"Subtraction\" field");
+                }
+            }
+
+            if (event.getSource() == stringInputButton) {
+                try {
+                    watch = new CountDownTimer(newStringField.getText());
+                } catch (NumberFormatException io) {
+                    JOptionPane.showMessageDialog(null, "Enter a time in \"New\" field");
+                } catch (IllegalArgumentException e) {
+                    JOptionPane.showMessageDialog(null, "Error in \"New\" field");
+                }
+
+            }
+
+            if (event.getSource() == loadButton) {
+                file.setDialogTitle("Select a file to load");
+                int returnVal = file.showOpenDialog(file);
+
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    try {
+                        File opened_file = file.getSelectedFile();
+                        watch.load(opened_file.getAbsolutePath());
+                    } catch (NullPointerException io) {
+                        JOptionPane.showMessageDialog(null, "Select a file to load");
+                    }
+                }
+            }
+
+            if (event.getSource() == saveButton) {
+                file.setDialogTitle("Specify a file to save");
+                int returnVal = file.showOpenDialog(file);
+
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    try {
+                        File save_file = file.getSelectedFile();
+                        watch.save(save_file.getAbsolutePath());
+                    } catch (IllegalArgumentException io) {
+                        JOptionPane.showMessageDialog(null, "Select a file to save");
+                    }
                 }
             }
 

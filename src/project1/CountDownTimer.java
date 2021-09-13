@@ -156,9 +156,9 @@ public class CountDownTimer {
 			if (seconds < 0) {
 				throw new IllegalArgumentException();
 			} else {
-				this.seconds -= seconds % 60;
-				this.minutes -= (seconds / 60) % 60;
-				this.hours -= (seconds / 60) / 60;
+				for (int i = 0; i < seconds; i++) {
+					dec();
+				}
 			}
 		}
 	}
@@ -168,9 +168,9 @@ public class CountDownTimer {
 			if(seconds < 0) {
 				throw new IllegalArgumentException();
 			}else {
-				this.seconds += seconds % 60;
-				this.minutes += (seconds / 60) % 60;
-				this.hours += (seconds / 60) / 60;
+				for(int i=0;i<seconds;i++) {
+					inc();
+				}
 			}
 		}
 	}
@@ -223,18 +223,18 @@ public class CountDownTimer {
 	}
 
 	public String toString() {
-		String fmStr = this.hours + ":";
-		if (this.minutes < 10) {
-			fmStr += "0" + this.minutes + ":";
+		String fmStr = hours + ":";
+		if (minutes < 10) {
+			fmStr += "0" + minutes + ":";
 		}
 		else {
-			fmStr += this.minutes + ":";
+			fmStr += minutes + ":";
 		}
-		if (this.seconds < 10) {
-			fmStr += "0" + this.seconds;
+		if (seconds < 10) {
+			fmStr += "0" + seconds;
 		}
 		else {
-			fmStr += this.seconds;
+			fmStr += seconds;
 		}
 
 		return fmStr;
@@ -291,7 +291,6 @@ public class CountDownTimer {
 		Scanner scanner = null;
 		try{
 			scanner = new Scanner(new File(fileName));
-
 			this.hours = scanner.nextInt();
 			this.minutes = scanner.nextInt();
 			this.seconds = scanner.nextInt();
