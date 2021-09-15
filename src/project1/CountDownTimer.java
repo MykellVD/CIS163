@@ -37,6 +37,7 @@ public class CountDownTimer {
 		}
 	}
 
+	//add test case
 	public CountDownTimer(int seconds) {
 		if (seconds < 0 || seconds >= 60) {
 			throw new IllegalArgumentException();
@@ -47,6 +48,7 @@ public class CountDownTimer {
 		}
 	}
 
+	//add test case
 	public CountDownTimer(CountDownTimer other) {
 		if (other == null) {
 			throw new IllegalArgumentException();
@@ -67,7 +69,7 @@ public class CountDownTimer {
 			minutes = 0;
 			seconds = 0;
 
-			if (startTimeSplit.length == 1 && startTimeSplit[0] == "") {
+			if ((startTimeSplit.length == 1 && startTimeSplit[0] == "") || (startTimeSplit.length > 3))  {
 				throw new IllegalArgumentException();
 			}
 			if (startTimeSplit.length == 1) {
@@ -119,6 +121,7 @@ public class CountDownTimer {
 		return false;
 	}
 
+	//add test case
 	public int compareTo(CountDownTimer other) {
 		if (other == null) {
 			throw new IllegalArgumentException();
@@ -135,6 +138,7 @@ public class CountDownTimer {
 		}
 	}
 
+	//add test case
 	public static int compareTo(CountDownTimer t1, CountDownTimer t2) {
 		if (t1.getTotalTime() > t2.getTotalTime()) {
 			return 1;
@@ -147,6 +151,7 @@ public class CountDownTimer {
 		}
 	}
 
+	//add test case
 	public void sub(int seconds) {
 		if (suspend == false) {
 			if (seconds < 0) {
@@ -190,17 +195,18 @@ public class CountDownTimer {
 	public void dec() {
 		if(suspend == false) {
 			if(seconds == 0) {
-				if(minutes == 0) {
+				if(minutes == 0) { //add test case
 					if(hours == 0){
 						hours = 0;
 						minutes = 0;
 						seconds = 0;
-					}else{
+
+					}else{ //add test case
 						hours -= 1;
 						minutes = 59;
 						seconds = 59;
 					}
-				}else {
+				}else { //add test case
 					minutes -= 1;
 					seconds = 59;
 				}
@@ -213,6 +219,7 @@ public class CountDownTimer {
 	public void add(CountDownTimer other) {
 		if (other == null)
 			throw new IllegalArgumentException();
+		//add test case
 		this.hours += other.hours;
 		this.minutes += other.minutes;
 		this.seconds += other.seconds;
@@ -236,6 +243,7 @@ public class CountDownTimer {
 		return fmStr;
 	}
 
+	//add test case
 	public int getTotalTime() {
 		return (this.hours * 3600) + (this.minutes * 60) + this.seconds;
 	}
@@ -244,6 +252,7 @@ public class CountDownTimer {
 		return hours;
 	}
 
+	//add test case
 	public void setHours(int hours) {
 		this.hours = hours;
 	}
@@ -252,6 +261,7 @@ public class CountDownTimer {
 		return minutes;
 	}
 
+	//add test case
 	public void setMinutes(int minutes) {
 		this.minutes = minutes;
 	}
@@ -260,6 +270,7 @@ public class CountDownTimer {
 		return seconds;
 	}
 
+	//add test case
 	public void setSeconds(int seconds) {
 		this.seconds = seconds;
 	}
@@ -272,6 +283,7 @@ public class CountDownTimer {
 			out = new PrintWriter (new BufferedWriter(new FileWriter(fileName)));
 			out.println(this.hours + " " + this.minutes + " " + this.seconds);
 		}
+		//add test case
 		catch (IOException e){
 			e.printStackTrace();
 		}
@@ -287,6 +299,7 @@ public class CountDownTimer {
 		Scanner scanner = null;
 		try{
 			scanner = new Scanner(new File(fileName));
+			//add test case where nextInts are negative
 			this.hours = scanner.nextInt();
 			this.minutes = scanner.nextInt();
 			this.seconds = scanner.nextInt();
