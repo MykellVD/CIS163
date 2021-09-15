@@ -18,51 +18,43 @@ public class CountDownTimer {
 	}
 
 	public CountDownTimer(int hours, int minutes, int seconds) {
-		if (hours > -1) {
+		if (hours < 0 || minutes < 0 || minutes >= 60 || seconds < 0 || seconds >= 60) {
+			throw new IllegalArgumentException();
+		} else {
 			this.hours = hours;
-		} else {
-			throw new IllegalArgumentException("Hours cannot be negative");
-		}
-
-		if (minutes > -1) {
-			if (minutes < 60) {
-				this.minutes = minutes;
+			this.minutes = minutes;
+			this.seconds = seconds;
 			}
-			else {
-				throw new IllegalArgumentException("Minutes cannot be greater than 59");
-			}
-		} else {
-			throw new IllegalArgumentException("Minutes cannot be negative");
-		}
-
-		if (seconds > -1) {
-			if (seconds < 60) {
-				this.seconds = seconds;
-			}
-			else {
-				throw new IllegalArgumentException("Seconds cannot be greater than 59");
-			}
-		} else {
-			throw new IllegalArgumentException("Seconds cannot be negative");
-		}
 	}
 
 	public CountDownTimer(int minutes, int seconds) {
-		this.minutes = minutes;
-		this.seconds = seconds;
-		hours = 0;
+		if (minutes < 0 || minutes >= 60 || seconds < 0 || seconds >= 60) {
+			throw new IllegalArgumentException();
+		} else {
+			this.minutes = minutes;
+			this.seconds = seconds;
+			hours = 0;
+		}
 	}
 
 	public CountDownTimer(int seconds) {
-		this.seconds = seconds;
-		hours = 0;
-		minutes = 0;
+		if (seconds < 0 || seconds >= 60) {
+			throw new IllegalArgumentException();
+		} else {
+			this.seconds = seconds;
+			minutes = 0;
+			hours = 0;
+		}
 	}
 
 	public CountDownTimer(CountDownTimer other) {
-		other.seconds = this.seconds;
-		other.minutes = this.minutes;
-		other.hours = this.hours;
+		if (other == null) {
+			throw new IllegalArgumentException();
+		} else {
+			other.seconds = this.seconds;
+			other.minutes = this.minutes;
+			other.hours = this.hours;
+		}
 	}
 
 	public CountDownTimer(String startTime) {
@@ -71,9 +63,9 @@ public class CountDownTimer {
 		} else {
 			String[] startTimeSplit = startTime.split(":",-1);
 
-			hours = -1;
-			minutes = -1;
-			seconds = -1;
+			hours = 0;
+			minutes = 0;
+			seconds = 0;
 
 			if (startTimeSplit.length == 1 && startTimeSplit[0] == "") {
 				throw new IllegalArgumentException();
@@ -128,14 +120,18 @@ public class CountDownTimer {
 	}
 
 	public int compareTo(CountDownTimer other) {
-		if (this.getTotalTime() > other.getTotalTime()) {
-			return 1;
-		}
-		else if (this.getTotalTime() < other.getTotalTime()) {
-			return -1;
-		}
-		else {
-			return 0;
+		if (other == null) {
+			throw new IllegalArgumentException();
+		} else {
+			if (this.getTotalTime() > other.getTotalTime()) {
+				return 1;
+			}
+			else if (this.getTotalTime() < other.getTotalTime()) {
+				return -1;
+			}
+			else {
+				return 0;
+			}
 		}
 	}
 
