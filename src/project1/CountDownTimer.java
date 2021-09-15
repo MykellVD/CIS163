@@ -53,9 +53,9 @@ public class CountDownTimer {
 		if (other == null) {
 			throw new IllegalArgumentException();
 		} else {
-			other.seconds = this.seconds;
-			other.minutes = this.minutes;
-			other.hours = this.hours;
+			this.seconds = other.seconds;
+			this.minutes = other.minutes;
+			this.hours = other.hours;
 		}
 	}
 
@@ -69,10 +69,10 @@ public class CountDownTimer {
 			minutes = 0;
 			seconds = 0;
 
-			if ((startTimeSplit.length == 1 && startTimeSplit[0] == "") || (startTimeSplit.length > 3))  {
+			if (startTimeSplit.length > 3)  {
 				throw new IllegalArgumentException();
 			}
-			if (startTimeSplit.length == 1) {
+			if (startTimeSplit.length == 1 && startTimeSplit[0] != "") {
 				hours = 0;
 				minutes = 0;
 				seconds = Integer.parseInt(startTime);
@@ -110,6 +110,8 @@ public class CountDownTimer {
 			else {
 				rtn = false;
 			}
+		} else {
+			throw new IllegalArgumentException();
 		}
 		return rtn;
 	}
@@ -197,9 +199,7 @@ public class CountDownTimer {
 			if(seconds == 0) {
 				if(minutes == 0) { //add test case
 					if(hours == 0){
-						hours = 0;
-						minutes = 0;
-						seconds = 0;
+						throw new IllegalArgumentException();
 
 					}else{ //add test case
 						hours -= 1;
@@ -216,13 +216,18 @@ public class CountDownTimer {
 		}
 	}
 
+	public void sub(CountDownTimer other) {
+		if (other == null)
+			throw new IllegalArgumentException();
+		//add test case and error checks
+		this.sub(other.getTotalTime());
+	}
+
 	public void add(CountDownTimer other) {
 		if (other == null)
 			throw new IllegalArgumentException();
 		//add test case
-		this.hours += other.hours;
-		this.minutes += other.minutes;
-		this.seconds += other.seconds;
+		this.add(other.getTotalTime());
 	}
 
 	public String toString() {
@@ -254,16 +259,25 @@ public class CountDownTimer {
 
 	//add test case
 	public void setHours(int hours) {
-		this.hours = hours;
+		if (hours < 0) {
+			throw new IllegalArgumentException();
+		} else {
+			this.hours = hours;
+		}
 	}
 
 	public int getMinutes() {
+
 		return minutes;
 	}
 
 	//add test case
 	public void setMinutes(int minutes) {
-		this.minutes = minutes;
+		if (minutes > 59 || minutes < 0) {
+			throw new IllegalArgumentException();
+		} else {
+			this.minutes = minutes;
+		}
 	}
 
 	public int getSeconds() {
@@ -272,7 +286,11 @@ public class CountDownTimer {
 
 	//add test case
 	public void setSeconds(int seconds) {
-		this.seconds = seconds;
+		if (seconds > 59 || seconds < 0) {
+			throw new IllegalArgumentException();
+		} else {
+			this.seconds = seconds;
+		}
 	}
 
 	public void save(String fileName){
@@ -284,6 +302,9 @@ public class CountDownTimer {
 			out.println(this.hours + " " + this.minutes + " " + this.seconds);
 		}
 		//add test case
+		catch (FileNotFoundException e) {
+
+		}
 		catch (IOException e){
 			e.printStackTrace();
 		}
@@ -295,14 +316,21 @@ public class CountDownTimer {
 	public void load(String fileName){
 		if (fileName == null)
 			throw new NullPointerException();
-
+		int thours, tmins, tsecs;
 		Scanner scanner = null;
 		try{
 			scanner = new Scanner(new File(fileName));
 			//add test case where nextInts are negative
-			this.hours = scanner.nextInt();
-			this.minutes = scanner.nextInt();
-			this.seconds = scanner.nextInt();
+			thours = scanner.nextInt();
+			tmins = scanner.nextInt();
+			tsecs = scanner.nextInt();
+			if (thours < 0 || tmins < 59 || tsecs < 59 || tmins > 0 || tsecs > 0) {
+				hours = thours;
+				minutes = tmins;
+				seconds = tsecs;
+			} else {
+				throw new NumberFormatException();
+			}
 		}
 		catch (FileNotFoundException e){
 			throw new NullPointerException();
