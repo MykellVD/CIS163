@@ -1,6 +1,8 @@
 package project1;
 
 import java.io.*;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class CountDownTimer {
@@ -73,11 +75,8 @@ public class CountDownTimer {
 				throw new IllegalArgumentException();
 			}
 			if (startTimeSplit.length == 1 && startTimeSplit[0] != "") {
-				hours = 0;
-				minutes = 0;
 				seconds = Integer.parseInt(startTime);
 			} else if (startTimeSplit.length == 2) {
-				hours = 0;
 				minutes = Integer.parseInt(startTimeSplit[0]);
 				seconds = Integer.parseInt(startTimeSplit[1]);
 			} else if (startTimeSplit.length == 3) {
@@ -315,7 +314,7 @@ public class CountDownTimer {
 
 	public void load(String fileName){
 		if (fileName == null)
-			throw new NullPointerException();
+			throw new IllegalArgumentException();
 		int thours, tmins, tsecs;
 		Scanner scanner = null;
 		try{
@@ -333,10 +332,21 @@ public class CountDownTimer {
 			}
 		}
 		catch (FileNotFoundException e){
-			throw new NullPointerException();
+			throw new IllegalArgumentException();
+		}
+		catch (NullPointerException e) {
+			throw new IllegalArgumentException();
+		}
+		catch (NoSuchElementException e) {
+			throw new IllegalArgumentException();
+		}
+		catch (IllegalArgumentException e) {
+			throw new IllegalArgumentException();
 		}
 		finally {
-			scanner.close();
+			if (scanner != null) {
+				scanner.close();
+			}
 		}
 	}
 

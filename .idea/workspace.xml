@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b085e11-0fd5-4891-8bc5-854afed46e1c" name="Changes" comment="Comments where add test cases">
+    <list default="true" id="9b085e11-0fd5-4891-8bc5-854afed46e1c" name="Changes" comment="update 1.81">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project1/CountDownTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project1/CountDownTimer.java" afterDir="false" />
     </list>
@@ -19,9 +19,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/project1/TestCountDownTimer.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/project1/CountDownTimer.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/project1/TestCountDownTimer.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1xYtY4oSEPR6BdsFSGjAHMlZ41H" />
   <component name="ProjectViewState">
@@ -29,24 +37,21 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/project1" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="project1" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="JUnit.teacherTestCases">
     <configuration name="teacherTestCases" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -64,7 +69,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="teacherTestCases.testDecException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="teacherTestCases.testBadLoad1String1Value" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CIS163" />
       <extension name="coverage">
         <pattern>
@@ -74,13 +79,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="project1" />
       <option name="MAIN_CLASS_NAME" value="project1.teacherTestCases" />
-      <option name="METHOD_NAME" value="testDecException" />
+      <option name="METHOD_NAME" value="testBadLoad1String1Value" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="teacherTestCases.testEqualsString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="teacherTestCases.testBadLoadEmptyString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CIS163" />
       <extension name="coverage">
         <pattern>
@@ -90,13 +95,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="project1" />
       <option name="MAIN_CLASS_NAME" value="project1.teacherTestCases" />
-      <option name="METHOD_NAME" value="testEqualsString" />
+      <option name="METHOD_NAME" value="testBadLoadEmptyString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="teacherTestCases.testSetSecondsLarge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="teacherTestCases.testLoadFileNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CIS163" />
       <extension name="coverage">
         <pattern>
@@ -106,13 +111,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="project1" />
       <option name="MAIN_CLASS_NAME" value="project1.teacherTestCases" />
-      <option name="METHOD_NAME" value="testSetSecondsLarge" />
+      <option name="METHOD_NAME" value="testLoadFileNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="teacherTestCases.testSubSWTurnOverAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="teacherTestCases.testLoadNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CIS163" />
       <extension name="coverage">
         <pattern>
@@ -122,7 +127,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="project1" />
       <option name="MAIN_CLASS_NAME" value="project1.teacherTestCases" />
-      <option name="METHOD_NAME" value="testSubSWTurnOverAll" />
+      <option name="METHOD_NAME" value="testLoadNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -131,10 +136,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.teacherTestCases" />
-        <item itemvalue="JUnit.teacherTestCases.testDecException" />
-        <item itemvalue="JUnit.teacherTestCases.testEqualsString" />
-        <item itemvalue="JUnit.teacherTestCases.testSubSWTurnOverAll" />
-        <item itemvalue="JUnit.teacherTestCases.testSetSecondsLarge" />
+        <item itemvalue="JUnit.teacherTestCases.testLoadFileNotFound" />
+        <item itemvalue="JUnit.teacherTestCases.testLoadNull" />
+        <item itemvalue="JUnit.teacherTestCases.testBadLoadEmptyString" />
+        <item itemvalue="JUnit.teacherTestCases.testBadLoad1String1Value" />
       </list>
     </recent_temporary>
   </component>
@@ -182,14 +187,35 @@
       <option name="project" value="LOCAL" />
       <updated>1631288548906</updated>
     </task>
-    <task id="LOCAL-00006" summary="Comments where add test cases">
-      <created>1631710393573</created>
+    <task id="LOCAL-00006" summary="update 1.3">
+      <created>1631288721369</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1631710393573</updated>
+      <updated>1631288721369</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update 1.7&#10;&#10;Front End GUI Finished">
+      <created>1631555418646</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1631555418646</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update 1.7&#10;&#10;Front End GUI Finished">
+      <created>1631555814923</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1631555814923</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update 1.8&#10;&#10;Back End of GUI Finished">
+      <created>1631561886431</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1631561886431</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -205,86 +231,27 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="update 1.1" />
     <MESSAGE value="update 1.2" />
     <MESSAGE value="update 1.3" />
-    <MESSAGE value="Comments where add test cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments where add test cases" />
+    <MESSAGE value="update 1.7&#10;&#10;Front End GUI Finished" />
+    <MESSAGE value="update 1.8&#10;&#10;Back End of GUI Finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 1.8&#10;&#10;Back End of GUI Finished" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/TestCountDownTimer.java</url>
-          <line>192</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/TestCountDownTimer.java</url>
-          <line>195</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/TestCountDownTimer.java</url>
-          <line>198</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/TestCountDownTimer.java</url>
-          <line>201</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/project1/teacherTestCases.java</url>
-          <line>1031</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/teacherTestCases.java</url>
-          <line>1316</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/teacherTestCases.java</url>
-          <line>951</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/teacherTestCases.java</url>
-          <line>495</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/teacherTestCases.java</url>
-          <line>1114</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/teacherTestCases.java</url>
-          <line>1179</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/project1/teacherTestCases.java</url>
-          <line>912</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/project1/CountDownTimer.java</url>
-          <line>126</line>
-          <properties class="project1.CountDownTimer" method="compareTo">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="9" />
+          <line>1249</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CIS163$TestCountDownTimer.ic" NAME="TestCountDownTimer Coverage Results" MODIFIED="1631709063914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>project1.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/CIS163$CountDownTimerGUISwing.ic" NAME="CountDownTimerGUISwing Coverage Results" MODIFIED="1631708725123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/CIS163$teacherTestCases_testLoadFileNotFound.ic" NAME="teacherTestCases.testLoadFileNotFound Coverage Results" MODIFIED="1632175125074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>project1.*</FILTER>
     </SUITE>
   </component>
